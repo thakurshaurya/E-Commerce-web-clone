@@ -1,16 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.06);
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-border: rgba(0, 0, 0, 0.05);
+  --footer-bg: #0f172a;
+  --footer-text: #f3f4f6;
+  --input-bg: #ffffff;
+  --input-border: #e5e7eb;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --transition: all 0.25s ease;
+  --font-family: 'Outfit', sans-serif;
+}
+
+body.dark-mode {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #3b82f6;
+  --accent-hover: #60a5fa;
+  --card-bg: #1e293b;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(15, 23, 42, 0.85);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --footer-bg: #030712;
+  --footer-text: #e2e8f0;
+  --input-bg: #1e293b;
+  --input-border: #334155;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: "Roboto Mono";
+    font-family: var(--font-family);
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 80px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
 }
+
 a {
-  text-decoration: none;   /* removes underline */
-  color: inherit;          /* takes parent text color */
+  text-decoration: none;
+  color: inherit;
 }
 
 .jersey-15-regular {
@@ -18,54 +69,74 @@ a {
     font-weight: 400;
     font-style: normal;
 }
-.icon-image{
-    height: 24px;
-    width: 24px;
+
+.icon-image {
+    height: 20px;
+    width: 20px;
 }
+
 .search {
     flex: 1;
-    width: 250px;
-    border: none;
-    margin-right: 15px;
-    padding: 10px 10px;
-    border: 1px solid;
-    border-radius: 10px;
-    box-shadow: inset 1px 1px 3px rgb(138, 134, 134);
+    width: 320px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--input-border);
+    margin-right: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    box-shadow: none;
+    transition: var(--transition);
+}
+
+.search:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .btn {
-    padding: 5px;
-    height: 40px;
-    padding: 0px 15px;
+    height: 42px;
+    padding: 0 20px;
     color: white;
-    background-color: rgb(0, 94, 255);
+    background-color: var(--accent-color);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
-    box-shadow: 0px 1px 3px rgb(138, 134, 134);
-    transition: transform 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    transform: translateY(-2px);
+    background-color: var(--accent-hover);
+    box-shadow: var(--shadow-md);
 }
 
 .btn:active {
-    background-color: rgb(55, 127, 253);
+    transform: translateY(0);
 }
-.icon-section{
+
+.icon-section {
     height: 24px;
     width: 24px;
 }
-.heading-text{
-    color: rgb(0, 94, 255);
-    transition: transform 0.2s ease;
-    cursor: pointer;
-    font-weight: 800;
-    font-size: 20px;
-}
-.heading-text:hover{
-    transform: scale(1.1);
-    color: rgb(55, 127, 253);
 
+.heading-text {
+    color: var(--accent-color);
+    transition: var(--transition);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.heading-text:hover {
+    color: var(--accent-hover);
+    transform: translateY(-1px);
 }

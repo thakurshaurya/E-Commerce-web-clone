@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Register - Cube Collections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/utilites.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .auth-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #757575;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .auth-tab.active {
+            color: #000000;
+            border-bottom: 3px solid #000000;
+            margin-bottom: -2.5px;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #333333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #000000;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .auth-btn:hover {
+            background-color: #333333;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.875rem;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-section">
+            <a href="index.html">
+                <img src="img/free-logo.jpg" alt="" class="logo">
+            </a>
+        </div>
+        <div class="middle-section">
+            <div>
+                <input type="text" class="search" placeholder="Search for latest trends">
+            </div>
+            <button class="btn-search">
+                <img src="img/pngfind.com-searchicon-png-1092764.png" alt="" class="icon-image">
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="right-section-content">
+                <a href="T-shirts-home-page.html">
+                    <p class="heading-text">T-shirts</p>
+                </a>
+                <a href="Shirts-home-page.html">
+                    <p class="heading-text">Shirts</p>
+                </a>
+                <a href="jeans-home-page.html">
+                    <p class="heading-text">Jeans</p>
+                </a>
+                <a href="cargo-home-page.html">
+                    <p class="heading-text">Cargoes</p>
+                </a>
+                <a href="shoes-home-page.html">
+                    <p class="heading-text">Shoes</p>
+                </a>
+                <a href="hoodies-home-page.html">
+                    <p class="heading-text">Hoodies</p>
+                </a>
+            </div>
+            <div class="far-right-section">
+                <div class="shopping-cart-icon">
+                    <span class="material-symbols-outlined btn-cart">
+                        shopping_cart
+                    </span>
+                    <div class="cart-count">0</div>
+                </div>
+                <button class="btn btn-login">
+                    <img src="img/pngegg.png" alt="" class="icon-image">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login">Login</div>
+                <div class="auth-tab" id="tab-register">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                <div id="login-error" class="error-message"></div>
+                <button type="submit" class="auth-btn">Sign In</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required placeholder="Create a password">
+                </div>
+                <div id="register-error" class="error-message"></div>
+                <button type="submit" class="auth-btn">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <div class="left-part-footer">
+                <div class="footer-logo-section">
+                    <img src="img/free-logo.jpg" alt="" class="logo">
+                    <p class="heading">Cube Collections</p>
+                </div>
+                <div class="footer-content">
+                    100% Purchase Protection
+                    premium products, shirts, tshirts & latest trends...
+                </div>
+            </div>
+            <div class="middle-part-footer">
+                <div class="left-middle-part">
+                    <p class="footer-heading">SHOP</p>
+                    <a href="T-shirts-home-page.html">
+                        <p class="footer-text">T-shirts</p>
+                    </a>
+                    <a href="Shirts-home-page.html">
+                        <p class="footer-text">Shirts</p>
+                    </a>
+                    <a href="jeans-home-page.html">
+                        <p class="footer-text">Jeans</p>
+                    </a>
+                    <a href="cargo-home-page.html">
+                        <p class="footer-text">Cargoes</p>
+                    </a>
+                    <a href="shoes-home-page.html">
+                        <p class="footer-text">Shoes</p>
+                    </a>
+                    <a href="hoodies-home-page.html">
+                        <p class="footer-text">Hoodies</p>
+                    </a>
+                </div>
+                <div class="middle-center-part">
+                    <p class="footer-heading">SERVICES</p>
+                    <a href="">
+                        <p class="footer-text">About us</p>
+                    </a>
+                    <a href="">
+                        <p class="footer-text">Contact us</p>
+                    </a>
+                    <a href="">
+                        <p class="footer-text">Return Policy</p>
+                    </a>
+                </div>
+                <div class="right-part-footer">
+                    <img src="img/pay.png" alt="" class="footer-img">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
